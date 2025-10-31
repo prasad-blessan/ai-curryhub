@@ -110,6 +110,53 @@ export const ChatInterface = ({ clearSignal }: ChatInterfaceProps) => {
     setInput("");
     setIsLoading(true);
 
+    // Simple client-side guard: if the user's question doesn't appear to be about
+    // food/recipes/cooking, return a friendly canned reply without calling the API.
+    const cannedNonFoodReply =
+      "I’m primarily here to help you with CurryHub South Indian recipes and cooking tips! If you have any questions or need a recipe, feel free to ask. How can I help with your cooking today?";
+
+    const isFoodRelated = (text: string) => {
+      if (!text) return false;
+      const keywords = [
+        "recipe",
+        "cook",
+        "cooking",
+        "ingredient",
+        "ingredients",
+        "dish",
+        "dishes",
+        "curry",
+        "idli",
+        "dosa",
+        "sambar",
+        "vada",
+        "biryani",
+        "masala",
+        "pantry",
+        "grind",
+        "roast",
+        "fry",
+        "bake",
+        "steamed",
+        "marinate",
+        "south indian",
+        "north indian",
+        "chicken",
+        "fish"
+      ];
+
+      const lower = text.toLowerCase();
+      // If any keyword appears in the text, consider it food-related.
+      return keywords.some(k => lower.includes(k));
+    };
+
+    if (!isFoodRelated(input)) {
+      // Append the user's message and the canned assistant reply, then stop.
+      setMessages(prev => [...prev, { role: "assistant", content: cannedNonFoodReply }]);
+      setIsLoading(false);
+      return;
+    }
+
     let assistantContent = "";
     const updateAssistant = (chunk: string) => {
       assistantContent += chunk;

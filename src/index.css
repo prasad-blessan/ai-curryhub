@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Indian spice-inspired warm palette */
+    --background: 32 95% 98%;
+    --foreground: 20 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 20% 15%;
+
+    /* Saffron/Orange primary (Indian flag inspired) */
+    --primary: 28 95% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Warm curry secondary */
+    --secondary: 38 85% 92%;
+    --secondary-foreground: 20 20% 15%;
+
+    --muted: 38 60% 95%;
+    --muted-foreground: 20 15% 45%;
+
+    /* Green accent (Indian flag) */
+    --accent: 138 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 38 30% 88%;
+    --input: 38 30% 88%;
+    --ring: 28 95% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients and effects */
+    --gradient-warm: linear-gradient(135deg, hsl(28 95% 60%), hsl(38 90% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(32 95% 98%), hsl(38 85% 96%));
+    --shadow-warm: 0 10px 40px -10px hsl(28 95% 60% / 0.25);
+    --shadow-glow: 0 0 30px hsl(28 95% 60% / 0.2);
+  }
+
+  .dark {
+    --background: 20 25% 8%;
+    --foreground: 38 85% 92%;
+
+    --card: 20 20% 12%;
+    --card-foreground: 38 85% 92%;
+
+    --popover: 20 20% 12%;
+    --popover-foreground: 38 85% 92%;
+
+    --primary: 28 95% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 20% 16%;
+    --secondary-foreground: 38 85% 92%;
+
+    --muted: 20 15% 20%;
+    --muted-foreground: 38 40% 60%;
+
+    --accent: 138 50% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 15% 20%;
+    --input: 20 15% 20%;
+    --ring: 28 95% 55%;
+
+    --gradient-warm: linear-gradient(135deg, hsl(28 95% 55%), hsl(38 85% 50%));
+    --gradient-subtle: linear-gradient(180deg, hsl(20 25% 8%), hsl(20 20% 12%));
+    --shadow-warm: 0 10px 40px -10px hsl(28 95% 55% / 0.3);
+    --shadow-glow: 0 0 30px hsl(28 95% 55% / 0.25);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

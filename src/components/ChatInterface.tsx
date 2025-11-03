@@ -126,7 +126,7 @@ export const ChatInterface = ({ clearSignal }: ChatInterfaceProps) => {
         "dish",
         "dishes",
         "curry",
-        "idli",
+        "idly",
         "dosa",
         "sambar",
         "vada",

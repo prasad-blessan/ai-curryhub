@@ -213,6 +213,7 @@ export const ChatInterface = ({ clearSignal }: ChatInterfaceProps) => {
         "palak paneer",
         "chole",
         "rajma",
+        "paneer",
         "paneer butter masala",
         "bhindi masala",
         "aloo gobi",
